@@ -13,18 +13,22 @@ function MainHome() {
   const [username, setusername] = useState('')
   const [weather , setWeather] = useState('')
 
-  useEffect( async()=>{
-    const user = decodedToken()
-
-    const data = await findUser(user?.id)
-    const name = data?.user?.userName;
-    setusername(name)
-
-    const weatherData = await currentWeather()
-    const currentData = weatherData?.data[0]
-    setWeather(currentData)
-
-  },[])
+  useEffect(() => {
+    async function fetchData() {
+      const user = decodedToken();
+  
+      const data = await findUser(user?.id);
+      const name = data?.user?.userName;
+      setusername(name);
+  
+      const weatherData = await currentWeather();
+      const currentData = weatherData?.data[0];
+      setWeather(currentData);
+    }
+  
+    fetchData();
+  }, []);
+  
 
 
   return (

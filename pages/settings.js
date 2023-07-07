@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import {AiOutlineUser, AiOutlineLogout} from 'react-icons/ai'
 import {FaUserEdit} from 'react-icons/fa'
-import {MdLanguage} from 'react-icons/md'
-import { BsMoonFill } from 'react-icons/bs'
 import { decodedToken } from '../action/verifyToken'
 import { findUser } from '../action/user'
 import UserEdit from '../components/UserEdit'
@@ -19,15 +17,20 @@ function Settings() {
   const [model , setModel] = useState(false)
   const [log , setLog] = useState(false)
 
-  useEffect( async()=>{
-    const user = decodedToken()
-    setUser(user)
-
-    const data = await findUser(user.id)
-    const name = data?.user?.userName;
-
-    setusername(name)
-  },[])
+  useEffect(() => {
+    async function fetchData() {
+      const user = decodedToken();
+      setUser(user);
+  
+      const data = await findUser(user.id);
+      const name = data?.user?.userName;
+  
+      setusername(name);
+    }
+  
+    fetchData();
+  }, []);
+  
 
   return (
     <Layout>

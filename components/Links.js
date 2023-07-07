@@ -7,7 +7,7 @@ function Links({link}) {
 
   return (
     <div>
-        <Link href={link.link}>
+        <Link href={link.link} passHref>
             <span className={` ${router.pathname == link.link ? 'text-[#7af59b] duration-200 transition-all': 'text-white'} flex flex-col items-center cursor-pointer`}>
                 <span className={` ${router.pathname == link.link ? 'scale-110': ''} text-[28px]`}>{link.icon}</span>
                 {link.name}

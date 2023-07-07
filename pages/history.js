@@ -10,11 +10,15 @@ function History() {
 
   const [weather, setWeather] = useState([]);
 
-  useEffect(async()=>{
-      const weatherData = await forecastWeather()
-      const mainData = weatherData?.data
-      setWeather(mainData)
-  },[])
+  useEffect(() => {
+    async function fetchData() {
+      const weatherData = await forecastWeather();
+      const mainData = weatherData?.data;
+      setWeather(mainData);
+    }
+  
+    fetchData();
+  }, []);
 
 
   return (
@@ -22,7 +26,7 @@ function History() {
       <div className='relative h-[calc(100vh-142px)]  bg-bgBlack text-lightText -mt-[1px]'>
         <div className='max-w-screen-md mx-auto px-5 py-2 flex flex-col'>
             <div className='flex justify-center '>
-              <h2 className='text-lg font-semibold text-center border-b-2 tracking-wide'>Last week's history</h2>
+              <h2 className='text-lg font-semibold text-center border-b-2 tracking-wide'>{"Last week's history"}</h2>
             </div>
           <div className='flex flex-col mt-5'>
             <div className='flex items-center'>
