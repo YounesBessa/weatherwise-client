@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .main {
+    @apply w-full bg-bgBlack
+  }
+  .container {
+    @apply max-w-screen-md flex justify-center items-center text-lightText mx-auto px-4
+  }
+}
