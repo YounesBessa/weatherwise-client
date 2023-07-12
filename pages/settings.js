@@ -13,7 +13,7 @@ import LogOut from '../components/LogOut'
 function Settings() {
  
   const [user, setUser] = useState('')
-  const [username, setusername] = useState('')
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const {id} = user;
 
