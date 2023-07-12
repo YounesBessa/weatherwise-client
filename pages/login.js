@@ -14,7 +14,6 @@ function Login() {
 
   useEffect(()=>{
     const info = decodedToken();
-    console.log( 'this is my info', info)
     if(info ){
       router.push('/')
     }
@@ -35,8 +34,6 @@ function Login() {
     const userLog = async(event) =>{
       event.preventDefault()
         const res = await userLogin(user)
-        console.log(res)
-        console.log(res.successMessage)
         if(res.success === true){
           successAlert(res)
           router.push('/')
@@ -74,7 +71,7 @@ function Login() {
                             <input className="text-lightText text-lg font-semibold bg-transparent outline-none cursor-pointer" onClick={userLog} type="Submit" name="" id="" value='SIGN IN' />
                         </div>
                         <div className="flex justify-center items-center" >
-                            <p className="text-xs tracking-wide text-lightText">Create a new account &nbsp; <Link href='/register' passHref><span className="underline cursor-pointer">Sign up</span></Link></p>
+                            <p className="text-xs tracking-wide text-lightText">Create a new account &nbsp; <Link href='/register' ><span className="underline cursor-pointer">Sign up</span></Link></p>
                         </div>
                     </form>
                 </div>
