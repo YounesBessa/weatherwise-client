@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>NextJS PWA App</title>
+        <title>WeatherWise</title>
         <meta name="description" content="Weatherwise is a comprehensive smart home climate monitoring app that provides real-time data for temperature, humidity, and light level" />
         <link rel="manifest" href="/manifest.json" />
       </Head>

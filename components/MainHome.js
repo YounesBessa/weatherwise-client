@@ -33,7 +33,7 @@ function MainHome() {
 
   return (
     <div className="main">
-      <div className="max-w-screen-md flex flex-col text-lightText mx-auto px-4">
+      <div className="max-w-[500px] md:max-w-[1280px] md:px-10 flex flex-col justify-center text-lightText mx-auto px-4">
         <div className='flex flex-col justify-start'>
           <h2 className='text-lg font-semibold'>Hello, &nbsp;<span className='text-gray-400 capitalize'>{username}</span></h2>
         </div>
@@ -50,17 +50,17 @@ function MainHome() {
               <Image src={logo} priority height={150} width={150} alt="Logo" />
             </div>
             <div className='flex justify-between items-center pt-12 ml-3'>
-              <div className='flex flex-col gap-1 '>
+            <div className='flex flex-col gap-1'>
                   <TiWeatherPartlySunny size={32} />
-                  <span className='text-lg font-semibold'>{weather.lighting} LX</span>
+                  <span className='text-lg font-semibold'>{weather?.lighting} LX</span>
               </div>
-              <div className='flex flex-col gap-1'>
+              <div className='flex flex-col gap-1 '>
                 <CiTempHigh size={38}/>
-                <span className='text-lg font-semibold'>{weather.temperature}&deg;C</span>
+                <span className='text-lg font-semibold'>{weather?.temperature}&deg;C</span>
               </div>
-              <div className='flex flex-col gap-1 -mt-[6px]'>
+              <div className='flex flex-col gap-1 -mt-[6px] md:-mt-[0px] '>
                 <WiHumidity className='relative -left-[2px]' size={50}/>
-                <span className='text-lg font-semibold'>{weather.humidity}%</span>
+                <span className='text-lg font-semibold'>{weather?.humidity}%</span>
               </div>
             </div>
         </div>

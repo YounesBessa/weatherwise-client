@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import {AiOutlineUser, AiOutlineLogout} from 'react-icons/ai'
 import {FaUserEdit} from 'react-icons/fa'
+import {MdLanguage} from 'react-icons/md'
+import { BsMoonFill } from 'react-icons/bs'
 import { decodedToken } from '../action/verifyToken'
 import { findUser } from '../action/user'
 import UserEdit from '../components/UserEdit'
@@ -12,21 +14,22 @@ function Settings() {
  
   const [user, setUser] = useState('')
   const [username, setusername] = useState('')
+  const [email, setEmail] = useState('')
   const {id} = user;
 
   const [model , setModel] = useState(false)
   const [log , setLog] = useState(false)
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const user = decodedToken();
       setUser(user);
   
       const data = await findUser(user.id);
-      const name = data?.user?.userName;
-  
-      setusername(name);
-    }
+      const { userName, email } = data?.user;
+      setEmail(email);
+      setUsername(userName);
+    };
   
     fetchData();
   }, []);
@@ -35,9 +38,9 @@ function Settings() {
   return (
     <Layout>
       <div className='relative h-[calc(100vh-142px)]  bg-bgBlack text-lightText -mt-[1px]' >
-        {model && <UserEdit id={id} userName={'name'} setModel={setModel} /> }
+        {model && <UserEdit id={id} email={email} userName={username} setModel={setModel} /> }
         {log && <LogOut setLog={setLog} /> }
-        <div className='max-w-screen-md mx-auto px-5 py-2' >
+        <div className='max-w-[500px] md:max-w-[1280px] md:px-10 mx-auto px-5 py-2' >
           <div className='flex flex-col gap-9'>
             <div className='flex justify-center '>
               <h2 className='text-lg font-semibold text-center border-b-2 tracking-wider'>Settings</h2>
