@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:8000/api/v1';
+const URL = 'https://weatherwise-api.hop.sh/api/v1';
 
 export const userUpdate = async (user, id)=>{
     try{
