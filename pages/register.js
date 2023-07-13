@@ -101,7 +101,7 @@ return (
                             <input className="text-lightText text-lg font-semibold bg-transparent outline-none"onClick={userReg} type="Submit" name="" id="" value='SIGN UP' />
                         </div>
                         <div className="flex justify-center items-center" >
-                            <p className="text-xs tracking-wide text-lightText">You have an account &nbsp; <Link href='/login' ><span className="underline cursor-pointer">Sign in</span></Link>  </p>
+                            <p className="text-xs tracking-wide text-lightText">You have an account &nbsp; <Link href='/login' passHref><span className="underline cursor-pointer">Sign in</span></Link>  </p>
                         </div>
                     </form>
                 </div>

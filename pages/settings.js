@@ -23,15 +23,22 @@ function Settings() {
   const [passwordModel , setPasswordModel] = useState(false)
   const [log , setLog] = useState(false)
 
-  useEffect( async()=>{
-    const user = decodedToken()
-    setUser(user)
-
-    const data = await findUser(user.id)
-    const {userName, email} = data?.user;
-    setEmail(email)
-    setusername(userName)
-  },[])
+  useEffect(() => {
+    (async () => {
+      try {
+        const user = decodedToken();
+        setUser(user);
+  
+        const data = await findUser(user.id);
+        const { userName, email } = data?.user;
+        setEmail(email);
+        setusername(userName);
+      } catch (error) {
+        // Handle any errors that occur during data fetching
+        console.error(error);
+      }
+    })();
+  }, []);
 
   return (
     <Layout>
